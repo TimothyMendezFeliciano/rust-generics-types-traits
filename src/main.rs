@@ -1,6 +1,7 @@
 use crate::Traits::{Comment, Summary, Tweet};
 
 mod Traits;
+mod TraitsParameters;
 
 struct Point<T> {
     x: T,

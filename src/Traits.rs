@@ -4,6 +4,12 @@ pub trait Summary {
     }
 }
 
+pub trait Display {
+    fn display(&self) -> String {
+        String::from("Displaying myself.")
+    }
+}
+
 pub struct Comment {
     pub content: String,
     pub author: String,
