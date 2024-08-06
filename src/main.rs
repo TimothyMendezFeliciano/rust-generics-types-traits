@@ -1,3 +1,5 @@
+mod Traits;
+
 struct Point<T> {
     x: T,
     y: T,
@@ -56,8 +58,8 @@ fn main() {
 
     println!("integer.x = {}", integer.x());
 
-    let p1 = MixupPoint{x:5, y: 10.4};
-    let p2 = MixupPoint{x:"Hello", y: 'c'};
+    let p1 = MixupPoint { x: 5, y: 10.4 };
+    let p2 = MixupPoint { x: "Hello", y: 'c' };
 
     let p3 = p1.mixup(p2);
 
