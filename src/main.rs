@@ -1,3 +1,5 @@
+use crate::Traits::{Summary, Tweet};
+
 mod Traits;
 
 struct Point<T> {
@@ -64,6 +66,15 @@ fn main() {
     let p3 = p1.mixup(p2);
 
     println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
+
+    let tweet = Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from("writing simple gibberish about horses"),
+        reply: false,
+        retweet: false
+    };
+
+    println!("1 new tweet: {}", tweet.summarize());
 }
 
 fn largest<T>(list: &[T]) -> &T {
