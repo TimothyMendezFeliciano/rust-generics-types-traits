@@ -14,12 +14,28 @@ impl<T> Point<T> {
     }
 }
 
-impl<f32> Point<f32> {
-    fn distance_from_original(&self) -> f32 {
+impl<F32> Point<F32> {
+    fn distance_from_original(&self) -> F32 {
         (self.x.powi(2) + self.y.powi(2)).sqrt()
     }
 }
 
+struct MixupPoint<X1, Y1> {
+    x: X1,
+    y: Y1,
+}
+
+impl<X1, Y1> MixupPoint<X1, Y1> {
+    fn mixup<X2, Y2>(
+        self,
+        other: MixupPoint<X2, Y2>,
+    ) -> MixupPoint<X1, Y2> {
+        MixupPoint {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
 
 
 fn main() {
@@ -39,12 +55,19 @@ fn main() {
     let integer_and_float = BothPoint { x: 1, y: 4.0 };
 
     println!("integer.x = {}", integer.x());
+
+    let p1 = MixupPoint{x:5, y: 10.4};
+    let p2 = MixupPoint{x:"Hello", y: 'c'};
+
+    let p3 = p1.mixup(p2);
+
+    println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
 }
 
 fn largest<T>(list: &[T]) -> &T {
     let mut largest = &list[0];
 
-    for number in &list {
+    for number in list {
         if number > largest {
             largest = number;
         }
