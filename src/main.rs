@@ -1,4 +1,4 @@
-use crate::Traits::{Summary, Tweet};
+use crate::Traits::{Comment, Summary, Tweet};
 
 mod Traits;
 
@@ -18,11 +18,11 @@ impl<T> Point<T> {
     }
 }
 
-impl<F32> Point<F32> {
-    fn distance_from_original(&self) -> F32 {
-        (self.x.powi(2) + self.y.powi(2)).sqrt()
-    }
-}
+// impl<F32> Point<F32> {
+//     fn distance_from_original(&self) -> F32 {
+//         (self.x.powi(2) + self.y.powi(2)).sqrt()
+//     }
+// }
 
 struct MixupPoint<X1, Y1> {
     x: X1,
@@ -43,22 +43,22 @@ impl<X1, Y1> MixupPoint<X1, Y1> {
 
 
 fn main() {
-    let number_list = vec![34, 50, 25, 100, 65];
-    let result = largest(&number_list);
-
-    println!("The largest number is {result}");
-
-    let number_list = vec![102, 34, 6000, 89, 54, 2, 43, 8];
-    let result = largest(&number_list);
-
-    println!("The largest number is {result}");
-
-    let integer = Point { x: 5, y: 10 }; // Must be both of the same time.
-    let float = Point { x: 1.0, y: 5.0 }; // Can be of different type. Only x, and y need to match type.
-
-    let integer_and_float = BothPoint { x: 1, y: 4.0 };
-
-    println!("integer.x = {}", integer.x());
+    // let number_list = vec![34, 50, 25, 100, 65];
+    // let result = largest(&number_list);
+    //
+    // println!("The largest number is {result}");
+    //
+    // let number_list = vec![102, 34, 6000, 89, 54, 2, 43, 8];
+    // let result = largest(&number_list);
+    //
+    // println!("The largest number is {result}");
+    //
+    // let integer = Point { x: 5, y: 10 }; // Must be both of the same time.
+    // let float = Point { x: 1.0, y: 5.0 }; // Can be of different type. Only x, and y need to match type.
+    //
+    // let integer_and_float = BothPoint { x: 1, y: 4.0 };
+    //
+    // println!("integer.x = {}", integer.x());
 
     let p1 = MixupPoint { x: 5, y: 10.4 };
     let p2 = MixupPoint { x: "Hello", y: 'c' };
@@ -75,16 +75,23 @@ fn main() {
     };
 
     println!("1 new tweet: {}", tweet.summarize());
+
+    let comment = Comment {
+        content: String::from("Wow, horses are fascinating"),
+        author: String::from("McLuvin")
+    };
+
+    println!("Comment: {}", comment.summarize());
 }
 
-fn largest<T>(list: &[T]) -> &T {
-    let mut largest = &list[0];
-
-    for number in list {
-        if number > largest {
-            largest = number;
-        }
-    }
-
-    return largest;
-}
+// fn largest<T>(list: &[T]) -> &T {
+//     let mut largest = &list[0];
+//
+//     for number in list {
+//         if number > largest {
+//             largest = number;
+//         }
+//     }
+//
+//     return largest;
+// }

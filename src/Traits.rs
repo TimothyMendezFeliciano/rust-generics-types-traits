@@ -1,6 +1,15 @@
 pub trait Summary {
-    fn summarize(&self) -> String;
+    fn summarize(&self) -> String {
+        String::from("Default Implementation. Read more...")
+    }
 }
+
+pub struct Comment {
+    pub content: String,
+    pub author: String,
+}
+
+impl Summary for Comment {}
 
 pub struct NewsArticle {
     pub headline: String,
