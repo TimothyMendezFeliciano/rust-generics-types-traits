@@ -50,3 +50,12 @@ impl Summary for Tweet {
     }
 }
 
+fn returns_summarizable() -> impl Summary { // Returns a type that implements the Summary trait without naming the concrete type.
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from("writing simple gibberish about horses"),
+        reply: false,
+        retweet: false
+    };
+}
+
