@@ -2,6 +2,7 @@ use crate::Traits::{Comment, Summary, Tweet};
 
 mod Traits;
 mod TraitsParameters;
+mod conditionalMethods;
 
 struct Point<T> {
     x: T,
