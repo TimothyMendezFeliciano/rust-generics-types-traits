@@ -3,6 +3,7 @@ use crate::Traits::{Comment, Summary, Tweet};
 mod Traits;
 mod TraitsParameters;
 mod conditionalMethods;
+mod genericLifetimes;
 
 struct Point<T> {
     x: T,
